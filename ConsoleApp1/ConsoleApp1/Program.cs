@@ -10,9 +10,9 @@
         {
             Console.WriteLine("Vítej ve hře Představ Si");
             Player hrac = new Player("Hráč", 100, 10, "doma", 100);
-              hrac.AddItem(new Nabytek("stůl"));
-              hrac.AddItem(new Nabytek("židle"));
-             hrac.AddItem(new Nabytek("knihovna"));
+            hrac.AddItem(new Nabytek("stůl", 100, "zde můžeš pokládat své itemy"));
+            hrac.AddItem(new Nabytek("židle", 100, "zde si můžeš ukládat svůj postup"));
+            hrac.AddItem(new Nabytek("knihovna", 100, "zde si můžeš přečíst manuál"));
             VypisPolohy(hrac);
             /// ////////////////////////////////////
             static void VypisPolohy(Player hrac)
@@ -21,6 +21,12 @@
                 if (hrac.Poloha == "doma")
                 {
                     Console.WriteLine($"Ve svém domově máš: {string.Join(", ", hrac.GetInventoryNames())}");
+                }
+                Console.WriteLine("Chceš otevřít dveře?");
+                string volba = Console.ReadLine();
+                if (volba == "ano" || volba == "Ano")
+                {
+                    OtevritDvere();
                 }
             }
             /// ////////////////////////////////////
@@ -152,6 +158,20 @@
             Damage = damage;
             Hmotnost = hmotnost;
 
+        }
+    }
+    /// ////////////////////////////////////
+    internal class Market
+    {
+        public string Nazev { get; private set; }
+        public int Cena { get; private set; }
+        public string Popis { get; private set; }
+
+        public Market(string nazev, int cena, string popis)
+        {
+            Nazev = nazev;
+            Cena = cena;
+            Popis = popis;
         }
     }
 }
