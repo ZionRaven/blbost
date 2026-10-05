@@ -173,6 +173,18 @@
             Cena = cena;
             Popis = popis;
         }
+        private string Nabidka (string Nazev,  int cena, string popis)
+            Console.WriteLine("")
+        {
+
+        }
+        private string Koupe (string Nakup, string Nazev,  int cena)
+        {
+
+
+
+
+        }
     }
 }
 /// ////////////////////////////////////
